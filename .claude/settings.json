@@ -207,7 +207,9 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__query-docs",
       "mcp__sequential-thinking__sequentialthinking",
+      "mcp__chrome-devtools__*",
       "mcp__filesystem__*",
+      "// ide tools are provided by editor extensions (VS Code, JetBrains), not .mcp.json",
       "mcp__ide__getDiagnostics",
       "mcp__ide__executeCode",
 
@@ -278,14 +280,14 @@
       "Read(~/.config/gcloud/**)",
 
       "// === Shell Profile & SSH Key Protection (Edit/Write) ===",
-      "Edit(~/.bashrc:*)",
-      "Edit(~/.zshrc:*)",
-      "Edit(~/.bash_profile:*)",
-      "Write(~/.bashrc:*)",
-      "Write(~/.zshrc:*)",
-      "Write(~/.bash_profile:*)",
-      "Edit(~/.ssh/**:*)",
-      "Write(~/.ssh/**:*)"
+      "Edit(~/.bashrc)",
+      "Edit(~/.zshrc)",
+      "Edit(~/.bash_profile)",
+      "Write(~/.bashrc)",
+      "Write(~/.zshrc)",
+      "Write(~/.bash_profile)",
+      "Edit(~/.ssh/**)",
+      "Write(~/.ssh/**)"
     ]
   },
   "enableAllProjectMcpServers": true,

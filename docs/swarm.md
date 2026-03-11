@@ -9,6 +9,7 @@ Lightweight agents that work in parallel. Use them for big tasks.
 | `/swarm-plan` | Planning Orchestrator | Parallel exploration, task decomposition, artifact creation |
 | `/swarm-execute` | Execution Orchestrator | Parallel workers, quality gates, git push protocol |
 | `/swarm-review` | Adversarial Reviewer | Multi-perspective code review, root cause analysis |
+| `/swarm-research` | Research Orchestrator | Deep multi-source investigation, technology evaluation |
 | `/code-check` | Codebase Auditor | Holistic codebase audit for SOLID, DRY, consistency, and code health |
 
 ### Full Cycle
@@ -21,11 +22,12 @@ Lightweight agents that work in parallel. Use them for big tasks.
 
 | Worker | Model | Best For |
 |--------|-------|----------|
-| `worker-explorer` | Haiku | Fast codebase search |
+| `worker-explorer` | Haiku | Fast codebase search, dependency mapping |
 | `worker-builder` | Sonnet | Implementation, testing, refactoring |
-| `worker-reviewer` | Sonnet | Code review, security analysis |
-| `worker-researcher` | Sonnet | Web research |
-| `worker-architect` | Opus | Complex design |
+| `worker-reviewer` | Opus | Code review, security analysis |
+| `worker-researcher` | Sonnet | Quick web research, API docs |
+| `worker-research` | Opus | Deep multi-source investigation |
+| `worker-architect` | Opus | Complex design decisions, ADRs |
 
 ## When to Use
 
@@ -80,15 +82,9 @@ bd close <id> --reason "Done"        # worker completes
 bd sync                              # sync with git
 ```
 
-## Worker Completion Protocol
+## Worker Completion
 
-Workers MUST follow the "Landing the Plane" protocol from AGENTS.md:
-
-1. File issues for remaining work
-2. Run quality gates (if code changed)
-3. Update issue status
-4. **Push to remote** (mandatory — work is NOT complete until `git push` succeeds)
-5. Report completion to orchestrator
+Workers MUST follow the "Landing the Plane" protocol from AGENTS.md. Work is NOT complete until `git push` succeeds.
 
 ## Tips
 

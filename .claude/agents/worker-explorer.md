@@ -1,7 +1,7 @@
 ---
 name: worker-explorer
 description: Codebase exploration and web research worker. Use for pattern search, dependency mapping, doc lookup, and library comparison.
-permissionMode: acceptEdits
+permissionMode: default
 model: haiku
 ---
 

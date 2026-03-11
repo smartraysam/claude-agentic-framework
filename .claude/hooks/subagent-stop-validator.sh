@@ -16,6 +16,8 @@ STATE_DIR="$PROJECT_DIR/.claude/hooks/.state"
 # Subagent completion is generally validated by the orchestrator
 # This hook provides feedback for logging and coordination
 
+mkdir -p "$STATE_DIR" 2>/dev/null || true
+
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 echo "[$TIMESTAMP] Subagent task completed" >> "$STATE_DIR/subagent.log" 2>/dev/null || true
 

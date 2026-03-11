@@ -262,7 +262,6 @@ echo ""
 
 # Copy core directories with diff support
 copy_dir_with_diff "$FRAMEWORK_DIR/.claude" "$TARGET_DIR/.claude" ".claude"
-copy_dir_with_diff "$FRAMEWORK_DIR/templates" "$TARGET_DIR/templates" "templates"
 
 # Create artifacts directory if it doesn't exist
 if [ ! -d "$TARGET_DIR/artifacts" ]; then
@@ -277,38 +276,23 @@ fi
 copy_file_with_diff "$FRAMEWORK_DIR/.gitattributes" "$TARGET_DIR/.gitattributes" ".gitattributes"
 copy_file_with_diff "$FRAMEWORK_DIR/.mcp.json" "$TARGET_DIR/.mcp.json" ".mcp.json"
 
-# Copy .beads configuration template (optional) with diff support
-if [ -d "$FRAMEWORK_DIR/.beads" ]; then
-    if [ ! -d "$TARGET_DIR/.beads" ]; then
-        print_warning ".beads directory not found"
-        if confirm "  Copy Beads configuration template?"; then
-            mkdir -p "$TARGET_DIR/.beads"
-            [ -f "$FRAMEWORK_DIR/.beads/config.yaml" ] && cp "$FRAMEWORK_DIR/.beads/config.yaml" "$TARGET_DIR/.beads/"
-            [ -f "$FRAMEWORK_DIR/.beads/README.md" ] && cp "$FRAMEWORK_DIR/.beads/README.md" "$TARGET_DIR/.beads/"
-            [ -f "$FRAMEWORK_DIR/.beads/.gitignore" ] && cp "$FRAMEWORK_DIR/.beads/.gitignore" "$TARGET_DIR/.beads/"
-            print_success ".beads configuration template installed"
-            print_info "  Run 'bd init' to initialize Beads issue tracking"
+# Initialize Beads issue tracking (optional)
+if [ ! -d "$TARGET_DIR/.beads" ]; then
+    if command -v bd &>/dev/null; then
+        print_info "Beads CLI detected"
+        if confirm "  Initialize Beads issue tracking?"; then
+            (cd "$TARGET_DIR" && bd init)
+            print_success "Beads initialized"
         else
-            print_info "Skipped .beads configuration"
+            print_info "Skipped Beads initialization"
         fi
-        echo ""
     else
-        # Show diff for existing .beads directory
-        if ! diff -rq "$TARGET_DIR/.beads" "$FRAMEWORK_DIR/.beads" &>/dev/null; then
-            print_warning ".beads/ already exists with differences"
-            show_dir_diff "$TARGET_DIR/.beads" "$FRAMEWORK_DIR/.beads" ".beads"
-            if confirm "  Update .beads configuration?"; then
-                [ -f "$FRAMEWORK_DIR/.beads/config.yaml" ] && cp "$FRAMEWORK_DIR/.beads/config.yaml" "$TARGET_DIR/.beads/"
-                [ -f "$FRAMEWORK_DIR/.beads/README.md" ] && cp "$FRAMEWORK_DIR/.beads/README.md" "$TARGET_DIR/.beads/"
-                [ -f "$FRAMEWORK_DIR/.beads/.gitignore" ] && cp "$FRAMEWORK_DIR/.beads/.gitignore" "$TARGET_DIR/.beads/"
-                print_success ".beads configuration updated"
-            else
-                print_info "Skipped .beads/"
-            fi
-        else
-            print_info ".beads/ is already up to date"
-        fi
+        print_info "Beads CLI not found (optional)"
+        print_info "  Install: curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash"
+        print_info "  Then: cd $TARGET_DIR && bd init"
     fi
+else
+    print_info ".beads/ already initialized"
 fi
 
 # Copy CLAUDE.md and AGENTS.md with diff support
@@ -375,6 +359,8 @@ GITIGNORE_ENTRIES=(
     "# Logs"
     "*.log"
     "npm-debug.log*"
+    "# Claude Framework"
+    "scratchpad/"
 )
 
 if [ ! -f "$TARGET_DIR/.gitignore" ]; then
@@ -449,22 +435,21 @@ fi
 if [ -f "$TARGET_DIR/.claude/hooks/package.json" ]; then
     print_info "Installing hook dependencies..."
     echo ""
-    cd "$TARGET_DIR/.claude/hooks"
 
+    INSTALL_OK=false
     if command -v pnpm &> /dev/null; then
-        pnpm install --silent
+        (cd "$TARGET_DIR/.claude/hooks" && pnpm install --silent) && INSTALL_OK=true
     elif command -v npm &> /dev/null; then
-        npm install --silent
+        (cd "$TARGET_DIR/.claude/hooks" && npm install --silent) && INSTALL_OK=true
     else
         print_warning "Neither pnpm nor npm found - skipping dependency installation"
         print_info "Install Node.js and run: cd .claude/hooks && npm install"
     fi
 
-    if [ $? -eq 0 ]; then
+    if [ "$INSTALL_OK" = "true" ]; then
         print_success "Hook dependencies installed"
     fi
 
-    cd - > /dev/null
     echo ""
 fi
 
@@ -479,15 +464,18 @@ echo "2. Review tech strategy in .claude/rules/tech-strategy.md"
 echo "   Update to match your organization's standards"
 echo ""
 echo "3. Start using personas via slash commands:"
-echo "   /architect    - System design and ADRs"
-echo "   /builder      - Code implementation"
-echo "   /product-manager - PRDs and requirements"
+echo "   /architect       - System design and ADRs"
+echo "   /builder         - Code implementation"
+echo "   /qa-engineer     - Test strategy and quality"
+echo "   /security-auditor - Security reviews"
+echo "   /ui-ux-designer  - Interface design"
 echo ""
 echo "   Swarm orchestration commands:"
-echo "   /swarm-plan    - Plan with parallel exploration"
-echo "   /swarm-execute - Execute with parallel workers"
-echo "   /swarm-review  - Adversarial multi-perspective review"
-echo "   /code-check    - SOLID, DRY, consistency audit"
+echo "   /swarm-plan      - Plan with parallel exploration"
+echo "   /swarm-execute   - Execute with parallel workers"
+echo "   /swarm-review    - Adversarial multi-perspective review"
+echo "   /swarm-research  - Deep investigation"
+echo "   /code-check      - SOLID, DRY, consistency audit"
 echo ""
 echo "4. Optional: Install Beads for AI-native issue tracking:"
 echo "   curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash"

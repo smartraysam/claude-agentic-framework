@@ -4,7 +4,7 @@
     "description": "Skill activation rules for Claude Code with swarm coordination support",
     "updated": "2026-02-02",
     "swarm_aware": true,
-    "notes": "v2.1: Stripped intent_patterns and file_patterns from triggers — skill-activation hook only processes keywords. 57 skills."
+    "notes": "v2.2: Added deploy-aws-ecs and deploy-cloudflare entries. 67 skills."
   },
   "skills": [
     {
@@ -247,6 +247,24 @@
       "description": "Deploy applications to Railway platform",
       "triggers": {
         "keywords": ["railway", "deploy railway"]
+      },
+      "priority": "medium"
+    },
+    {
+      "name": "deploy-aws-ecs",
+      "path": ".claude/skills/operations/deploy-aws-ecs/SKILL.md",
+      "description": "Deploy containerized apps to AWS ECS/Fargate with task definitions and ECR",
+      "triggers": {
+        "keywords": ["ecs", "ecr", "task definition", "fargate"]
+      },
+      "priority": "medium"
+    },
+    {
+      "name": "deploy-cloudflare",
+      "path": ".claude/skills/operations/deploy-cloudflare/SKILL.md",
+      "description": "Deploy to Cloudflare Pages/Workers with Wrangler CLI",
+      "triggers": {
+        "keywords": ["cloudflare", "wrangler", "workers", "pages"]
       },
       "priority": "medium"
     },
