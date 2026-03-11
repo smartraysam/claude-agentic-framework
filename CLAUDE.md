@@ -106,7 +106,6 @@ See `beads-workflow` skill for complete command reference.
 |------|---------|
 | Sequential Thinking | Complex analysis, trade-off evaluation |
 | Chrome DevTools | Browser testing, performance profiling |
-| GitHub | PR creation, issue management |
 | Context7 | Library documentation lookup |
 | Filesystem | File system operations beyond workspace |
 
