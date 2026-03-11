@@ -1,111 +1,141 @@
 # Claude Agentic Framework
 
-Parallel agent swarms for Claude Code. Ship features faster with coordinated multi-agent workflows.
+A drop-in template for Claude Code projects. Adds coordinated multi-agent swarms, specialized personas, 67 reusable skills, and safety hooks — all configured through a single install command.
 
 ## Install
+
+Run this inside your project directory:
 
 ```bash
 cd your-project
 curl -sSL https://raw.githubusercontent.com/dralgorhythm/claude-agentic-framework/main/scripts/init-framework.sh | bash -s .
 ```
 
-Then start Claude Code: `claude`
+The script will:
+- Copy `.claude/` (commands, skills, rules, hooks, agents, templates)
+- Copy `.mcp.json` (MCP server configuration)
+- Copy `CLAUDE.md` and `AGENTS.md` (project instructions)
+- Create an `artifacts/` directory for planning documents
+- Set up `.gitignore` entries
+- Install hook dependencies
+- Initialize [Beads](https://github.com/steveyegge/beads) issue tracking (required for swarm coordination)
 
-## The Swarm Workflow
+### Beads Setup
 
-The fastest way to go from idea to shipped code. One agent thinks, then many agents build.
+Beads is the issue tracker that coordinates swarm workers — it's how agents claim tasks, track progress, and avoid conflicts. Install it before running the init script:
 
-### 1. Research — Single agent, deep thinking
-
-Use a persona to explore the problem space and draft your planning prompt:
-
-```
-/product-manager user notifications
-/architect redesign the auth system
-```
-
-This produces artifacts (PR-FAQs, PRDs, ADRs) that feed the next step.
-
-### 2. Plan — Parallel exploration
-
-```
-/swarm-plan implement user notifications per the PRD
+```bash
+curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
 ```
 
-Launches 3-6 explorer agents in parallel. They research existing patterns, dependencies, and constraints simultaneously, then produce a decomposed plan tracked as Beads.
+The init script will then run `bd init` in your project automatically.
 
-### 3. Execute — Parallel implementation
-
-```
-/swarm-execute
-```
-
-Picks up the planned work and fans out across multiple builder agents. Each worker claims a task, implements it, runs quality gates (tests, lint, types, build), and pushes to remote. Up to 8 workers in parallel.
-
-### 4. Review — Adversarial, multi-pass
-
-```
-/swarm-review    # run 2-3 times
-```
-
-Each pass launches 5 parallel reviewers covering different perspectives: security (OWASP Top 10), performance, architecture, test coverage, and code quality. Repeat until clean. Then ship the PR.
-
-### Full cycle
-
-```
-/product-manager <feature>  →  /swarm-plan  →  /swarm-execute  →  /swarm-review (2-3x)  →  PR
-```
-
-## Swarm Workers
-
-Eight specialized agent types, each tuned for cost and capability:
-
-| Worker | Model | Use |
-|--------|-------|-----|
-| `worker-explorer` | Haiku | Fast codebase search |
-| `worker-builder` | Sonnet | Implementation |
-| `worker-reviewer` | Sonnet | Code review |
-| `worker-tester` | Sonnet | Test writing |
-| `worker-researcher` | Sonnet | Web research |
-| `worker-architect` | Opus | Complex design decisions |
-| `worker-security` | Sonnet | Security analysis |
-| `worker-refactor` | Sonnet | Code cleanup |
-
-Haiku for read-only exploration. Sonnet for most work. Opus only for hard architectural calls.
-
-## Personas
-
-For single-agent work, ideation, and research:
-
-```
-/architect       /builder          /qa-engineer
-/security-auditor /ui-ux-designer  /code-check
-/swarm-plan      /swarm-execute    /swarm-review
-```
-
-Personas produce artifacts in `artifacts/` that chain naturally into swarm workflows.
-
-## Also Included
-
-- **65+ Skills** — Auto-suggested based on context (designing-systems, debugging, react-patterns, ...)
-- **Beads** — Lightweight issue tracking that coordinates swarm workers via git
-- **MCP Servers** — Browser debugging, GitHub integration, structured reasoning, library docs
-- **`/code-check`** — Holistic codebase audit for SOLID, DRY, consistency
+The script prompts before overwriting any existing files. Re-run it to pull in framework updates.
 
 ## After Install
 
-1. Open `CLAUDE.md` and add your build/test commands
-2. **Required**: Edit `.claude/rules/tech-strategy.md` to match your tech stack
-3. Try the swarm workflow on your next feature
+1. **Edit `CLAUDE.md`** — Add your build/test commands and project context
+2. **Edit `.claude/rules/tech-strategy.md`** — Configure your tech stack (this is required — the framework enforces whatever you put here)
+3. Start Claude Code and try: `/architect hello`
+
+## What You Get
+
+### Personas
+
+Single-agent expert modes, invoked via slash commands:
+
+| Command | Role |
+|---------|------|
+| `/architect` | System design, ADRs |
+| `/builder` | Implementation, debugging, testing |
+| `/qa-engineer` | Test strategy, E2E, accessibility |
+| `/security-auditor` | Threat modeling, security audits |
+| `/ui-ux-designer` | Interface design, visual assets |
+| `/code-check` | SOLID, DRY, consistency audit |
+
+### Swarm Orchestrators
+
+Multi-agent commands that fan work out across parallel workers:
+
+| Command | What It Does |
+|---------|-------------|
+| `/swarm-plan` | Launches 3-6 explorer agents to research patterns, dependencies, and constraints — produces a decomposed plan |
+| `/swarm-execute` | Picks up planned work, fans out across builder agents (up to 8 parallel), each running quality gates |
+| `/swarm-review` | Launches 5 parallel reviewers (security, performance, architecture, tests, quality) — run 2-3 times |
+| `/swarm-research` | Deep multi-source investigation with verification tiers |
+
+### The Full Cycle
+
+```
+/architect <feature>  →  /swarm-plan  →  /swarm-execute  →  /swarm-review (2-3x)  →  PR
+```
+
+One agent thinks. Many agents build. Many agents review.
+
+### Workers
+
+Six specialized agent types tuned for cost and capability:
+
+| Worker | Model | Use |
+|--------|-------|-----|
+| `worker-explorer` | Haiku | Fast codebase search, dependency mapping |
+| `worker-builder` | Sonnet | Implementation, testing, refactoring |
+| `worker-reviewer` | Opus | Code review, security analysis |
+| `worker-researcher` | Sonnet | Quick web research, API docs |
+| `worker-research` | Opus | Deep multi-source investigation |
+| `worker-architect` | Opus | Complex design decisions, ADRs |
+
+### Skills
+
+67 skills across 7 categories — auto-suggested based on keywords in your prompt:
+
+**Architecture** · **Engineering** · **Product** · **Security** · **Operations** · **Design** · **Languages & Frameworks**
+
+Covers everything from `designing-systems` and `debugging` to `react-patterns`, `terraform`, and `application-security`. See [docs/skills.md](docs/skills.md) for the full list.
+
+### Safety Hooks
+
+Pre-configured hooks that run automatically:
+
+- **Secret detection** — blocks commits containing API keys, tokens, private keys
+- **Protected files** — prevents accidental modification of `.env`, `.mcp.json`, `.beads/`
+- **Push blocking** — stops direct pushes to `main`/`master`
+- **Dangerous command guard** — warns on `rm -rf`, force push, `terraform destroy`
+- **File locking** — prevents concurrent edits in multi-agent swarms
+
+### MCP Servers
+
+Four servers pre-configured in `.mcp.json`:
+
+| Server | Purpose |
+|--------|---------|
+| Sequential Thinking | Structured multi-step reasoning |
+| Chrome DevTools | Browser testing, performance profiling |
+| Context7 | Up-to-date library documentation |
+| Filesystem | File operations beyond workspace |
+
+## Customization
+
+Everything is designed to be extended:
+
+- Add personas → `.claude/commands/your-persona.md`
+- Add skills → `.claude/skills/category/your-skill/SKILL.md`
+- Add rules → `.claude/rules/your-rule.md`
+- Add hooks → `.claude/hooks/your-hook.sh`
+- Add workers → `.claude/agents/worker-yourtype.md`
+
+Templates for each are in `.claude/templates/`.
+
+See [docs/customization.md](docs/customization.md) for details.
 
 ## Docs
 
-- [Installation details](docs/getting-started.md)
+- [Getting started](docs/getting-started.md)
 - [Multi-agent swarms](docs/swarm.md)
-- [All personas](docs/personas.md)
+- [Personas](docs/personas.md)
 - [Skills reference](docs/skills.md)
-- [Beads issue tracking](docs/beads.md)
 - [MCP servers](docs/mcp-servers.md)
-- [Customization](docs/customization.md)
 - [Hooks](docs/hooks.md)
 - [Handoffs](docs/handoffs.md)
+- [Beads setup & usage](docs/beads.md)
+- [Customization](docs/customization.md)

@@ -276,18 +276,14 @@ fi
 copy_file_with_diff "$FRAMEWORK_DIR/.gitattributes" "$TARGET_DIR/.gitattributes" ".gitattributes"
 copy_file_with_diff "$FRAMEWORK_DIR/.mcp.json" "$TARGET_DIR/.mcp.json" ".mcp.json"
 
-# Initialize Beads issue tracking (optional)
+# Initialize Beads issue tracking (required for swarm coordination)
 if [ ! -d "$TARGET_DIR/.beads" ]; then
     if command -v bd &>/dev/null; then
-        print_info "Beads CLI detected"
-        if confirm "  Initialize Beads issue tracking?"; then
-            (cd "$TARGET_DIR" && bd init)
-            print_success "Beads initialized"
-        else
-            print_info "Skipped Beads initialization"
-        fi
+        print_info "Initializing Beads issue tracking..."
+        (cd "$TARGET_DIR" && bd init)
+        print_success "Beads initialized"
     else
-        print_info "Beads CLI not found (optional)"
+        print_warning "Beads CLI not found — required for swarm coordination"
         print_info "  Install: curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash"
         print_info "  Then: cd $TARGET_DIR && bd init"
     fi
@@ -477,7 +473,7 @@ echo "   /swarm-review    - Adversarial multi-perspective review"
 echo "   /swarm-research  - Deep investigation"
 echo "   /code-check      - SOLID, DRY, consistency audit"
 echo ""
-echo "4. Optional: Install Beads for AI-native issue tracking:"
+echo "4. If Beads was not initialized above, install it for swarm coordination:"
 echo "   curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash"
 echo "   cd $TARGET_DIR && bd init"
 echo ""
