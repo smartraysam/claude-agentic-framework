@@ -1,7 +1,6 @@
 ---
 name: refactoring-code
 description: Improve code structure without changing behavior. Use when code is hard to read, modify, or test. Covers Extract Method, Rename, and other safe refactorings.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Refactoring Code

@@ -1,7 +1,6 @@
 ---
 name: swift
 description: Write Swift code for iOS/macOS following best practices. Use when developing with SwiftUI, UIKit, or Swift packages. Covers type safety, concurrency, and tooling.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Swift / iOS Development

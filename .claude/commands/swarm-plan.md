@@ -92,13 +92,31 @@ Every planning session MUST produce:
 3. Dependency graph showing task order
 4. Handoff summary for /execute command
 
+## Product Planning
+
+### PR-FAQ
+Use `writing-pr-faqs` skill for structure and template.
+
+### PRD
+Use `writing-prds` skill for structure and template.
+
+### Architecture Design Process
+1. **Understand** — Map existing system with Grep and Glob
+2. **Reason** — Enumerate constraints and evaluate options
+3. **Design** — Create ADR with trade-off matrix
+4. **Validate** — Verify design fits existing patterns
+
+### Output
+- `scratchpad/` for planning exploration and working notes
+- `artifacts/` for final documents (PR-FAQ, PRD, ADR, plan)
+
 ## Related Skills
 
-`decomposing-tasks`, `beads-workflow`, `swarm-coordination`, `writing-adrs`
+`decomposing-tasks`, `beads-workflow`, `swarm-coordination`, `writing-adrs`, `designing-systems`, `designing-apis`, `writing-pr-faqs`, `writing-prds`, `requirements-analysis`
 
 ## Handoff
 
-- To Builder: Plan artifact + Beads ready for `bd ready`
-- To Architect: Complex decisions requiring ADR review
+- To `/swarm-execute`: Plan artifact + Beads ready for `bd ready`
+- To `/architect`: Complex decisions requiring ADR review
 
 $ARGUMENTS

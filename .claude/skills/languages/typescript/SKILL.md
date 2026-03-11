@@ -1,7 +1,6 @@
 ---
 name: typescript
 description: Write TypeScript code following best practices. Use when developing TypeScript/JavaScript applications. Covers type safety, patterns, and tooling.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # TypeScript Development

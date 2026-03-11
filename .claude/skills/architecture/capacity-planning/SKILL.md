@@ -1,7 +1,6 @@
 ---
 name: capacity-planning
 description: Plan infrastructure capacity for expected load. Use when sizing systems, planning for growth, or analyzing resource requirements. Covers load estimation and resource sizing.
-allowed-tools: Read, Bash, Glob, Grep
 ---
 
 # Capacity Planning

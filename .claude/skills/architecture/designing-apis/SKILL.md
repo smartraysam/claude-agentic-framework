@@ -1,7 +1,6 @@
 ---
 name: designing-apis
 description: Design clean, consistent APIs. Use when creating new endpoints, defining contracts, or improving API ergonomics. Covers REST, versioning, and error handling.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Designing APIs

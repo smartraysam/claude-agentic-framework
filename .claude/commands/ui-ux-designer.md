@@ -1,6 +1,5 @@
 ---
 description: Interface design, visual assets, and accessibility
-allowed-tools: Read, Write, Glob, Grep, mcp__chrome-devtools__*
 argument-hint: [component-or-flow]
 ---
 
@@ -41,6 +40,8 @@ Interface design, visual consistency, and accessibility.
 - **Screenshots** at mobile/tablet/desktop breakpoints
 - **Lighthouse report** for accessibility score
 
+Working notes go to `scratchpad/`, final documents go to `artifacts/`.
+
 ## Constraints
 - NO inaccessible designs — verify with Lighthouse
 - NO inconsistent with design system
@@ -54,7 +55,7 @@ Interface design, visual consistency, and accessibility.
 `interface-design`, `accessibility`, `design-systems`
 
 ## Handoff
-- To Builder: After design approval
-- To QA Engineer: For accessibility testing
+- To `/swarm-execute`: After design approval
+- To `/swarm-review`: For accessibility testing
 
 $ARGUMENTS

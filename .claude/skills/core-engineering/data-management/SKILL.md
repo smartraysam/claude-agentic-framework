@@ -1,7 +1,6 @@
 ---
 name: data-management
 description: Design and manage data storage effectively. Use when working with databases, schemas, or data migrations. Covers schema design, migrations, and data integrity.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Data Management

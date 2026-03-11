@@ -14,15 +14,10 @@
         "chrome-devtools-mcp"
       ]
     },
-    "github": {
-      "command": "npx",
-      "args": [
-        "@anthropic-ai/mcp-server-github"
-      ],
-      "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
-      }
-    },
+    "filesystem": {                                                  
+      "command": "npx",                                              
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."] 
+    },                                                  
     "context7": {
       "command": "npx",
       "args": [

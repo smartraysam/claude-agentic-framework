@@ -1,7 +1,6 @@
 ---
 name: terraform
 description: Write Terraform infrastructure code. Use when provisioning cloud resources, managing infrastructure as code, or automating deployments. Covers HCL patterns.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Terraform Development

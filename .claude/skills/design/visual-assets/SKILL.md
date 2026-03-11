@@ -1,7 +1,6 @@
 ---
 name: visual-assets
 description: Create and manage visual assets. Use when creating graphics, icons, or images. Covers asset formats and optimization.
-allowed-tools: Read, Write, Bash, Glob, Grep
 ---
 
 # Visual Assets

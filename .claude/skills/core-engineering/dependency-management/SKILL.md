@@ -1,7 +1,6 @@
 ---
 name: dependency-management
 description: Manage project dependencies effectively. Use when adding, updating, or auditing dependencies. Covers version management, security scanning, and lockfiles.
-allowed-tools: Read, Bash, Glob, Grep
 ---
 
 # Dependency Management

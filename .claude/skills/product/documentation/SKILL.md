@@ -1,7 +1,6 @@
 ---
 name: documentation
 description: Write clear technical documentation. Use when creating READMEs, API docs, or user guides. Covers documentation types and best practices.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Technical Documentation

@@ -1,7 +1,6 @@
 ---
 name: estimating-work
 description: Estimate effort for development tasks. Use when planning sprints, roadmaps, or project timelines. Covers story points, relative estimation, and uncertainty.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Estimating Work

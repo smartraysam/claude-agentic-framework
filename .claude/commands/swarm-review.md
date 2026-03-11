@@ -115,6 +115,7 @@ Apply until reaching systemic cause (may be 3-7 whys):
 - NO approving with unresolved Critical/High issues
 - NO nitpicking style when using Biome/Prettier
 - NO blocking on personal preference
+- NEVER recommend removing a symbol without verifying all references via Grep first
 - ALWAYS reference specific files and lines
 - ALWAYS explain reasoning behind concerns
 - ALWAYS suggest alternatives, not just problems
@@ -125,8 +126,8 @@ Apply until reaching systemic cause (may be 3-7 whys):
 
 ## Handoff
 
-- To Builder: With specific remediation tasks
-- To Architect: For architectural concerns requiring ADR
-- To Security Auditor: For deep security analysis
+- To `/swarm-execute`: With specific remediation tasks
+- To `/architect`: For architectural concerns requiring ADR
+- To `/security-auditor`: For deep security analysis
 
 $ARGUMENTS

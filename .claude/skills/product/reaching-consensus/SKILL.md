@@ -1,7 +1,6 @@
 ---
 name: reaching-consensus
 description: Facilitate group decision-making. Use when teams need to align on decisions, resolve disagreements, or make collective choices. Covers consensus techniques.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Reaching Consensus

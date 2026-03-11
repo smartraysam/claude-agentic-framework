@@ -1,7 +1,6 @@
 ---
 name: design-systems
 description: Build and maintain design systems. Use when creating component libraries, design tokens, or style guides. Covers atomic design and tokens.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Design Systems

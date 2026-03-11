@@ -1,7 +1,6 @@
 ---
 name: context-management
 description: Manage project context effectively. Use when onboarding, context switching, or maintaining project knowledge. Covers context capture and sharing.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Context Management

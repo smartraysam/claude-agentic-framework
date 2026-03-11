@@ -1,7 +1,6 @@
 ---
 name: writing-prds
 description: Create Product Requirements Documents. Use when defining new features, projects, or initiatives. Covers user stories, acceptance criteria, and scope definition.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Writing PRDs

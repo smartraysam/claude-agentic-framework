@@ -1,7 +1,6 @@
 ---
 name: incident-management
 description: Handle production incidents effectively. Use when responding to outages, conducting post-mortems, or improving reliability. Covers incident response and blameless culture.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Incident Management

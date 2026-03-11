@@ -2,10 +2,8 @@
 # SubagentStop hook for validating subagent task completion
 # Ensures subagents complete their assigned work before returning
 
-set -e
-
 INPUT=$(cat)
-STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false')
+STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false' 2>/dev/null || echo "false")
 
 # Prevent infinite loops
 if [ "$STOP_HOOK_ACTIVE" = "true" ]; then

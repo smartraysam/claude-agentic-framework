@@ -1,7 +1,6 @@
 ---
 name: test-driven-development
 description: Write tests before implementation code. Use when starting new features or fixing bugs. Covers Red-Green-Refactor cycle and TDD best practices.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Test-Driven Development

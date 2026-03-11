@@ -1,7 +1,6 @@
 ---
 name: threat-modeling
 description: Identify and analyze security threats. Use when designing systems, reviewing architecture, or assessing risk. Covers STRIDE methodology.
-allowed-tools: Read, Write, Glob, Grep, mcp__sequential-thinking__*
 ---
 
 # Threat Modeling

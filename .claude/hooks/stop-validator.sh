@@ -2,11 +2,9 @@
 # Stop hook for swarm completion validation
 # Ensures clean handoff and state sync before session ends
 
-set -e
-
 INPUT=$(cat)
-STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false')
-SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false' 2>/dev/null || echo "false")
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty' 2>/dev/null || true)
 
 # Prevent infinite loops
 if [ "$STOP_HOOK_ACTIVE" = "true" ]; then

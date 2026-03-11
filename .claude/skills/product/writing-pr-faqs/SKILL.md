@@ -1,7 +1,6 @@
 ---
 name: writing-pr-faqs
 description: Write Press Release / FAQ documents. Use when proposing new products or features using Amazon's working backwards method. Covers PR/FAQ format.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Writing PR/FAQs

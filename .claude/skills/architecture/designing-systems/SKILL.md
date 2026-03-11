@@ -1,7 +1,6 @@
 ---
 name: designing-systems
 description: Design scalable, reliable software systems. Use when planning new systems, major features, or architecture changes. Covers C4 diagrams, trade-off analysis, and system decomposition.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Designing Systems

@@ -1,6 +1,5 @@
 ---
 description: Test strategy, automation, and quality verification
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, mcp__chrome-devtools__*
 argument-hint: [component-to-test]
 ---
 
@@ -44,11 +43,14 @@ Test strategy, automation, and verification.
 - ALWAYS run Lighthouse for UI components
 - ALWAYS capture screenshots for visual changes
 
+## Output
+Working notes go to `scratchpad/`, final documents go to `artifacts/`.
+
 ## Related Skills
 `testing`, `test-driven-development`
 
 ## Handoff
-- To Builder: For bug fixes
-- To Swarm Review: After test pass
+- To `/swarm-execute`: For bug fixes
+- To `/swarm-review`: After test pass
 
 $ARGUMENTS

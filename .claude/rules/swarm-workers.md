@@ -4,20 +4,21 @@ Rules for efficient multi-agent swarm execution.
 
 ## Context Efficiency
 
-1. **Workers inherit session context** - CLAUDE.md and rules are loaded, but workers use focused tool sets
+1. **Workers inherit session context** - CLAUDE.md and rules are loaded, but workers use focused instructions
 2. **Narrow scope** - Each worker focuses on one task
-3. **Minimal tools** - Only tools needed for the task
+3. **Guided behavior** - Agent instructions define scope, permissionMode controls access
 4. **Right-sized models** - Haiku for exploration, Sonnet for implementation, Opus for architecture
 
 ## Worker Types
 
-| Worker | Model | Tools | Use |
-|--------|-------|-------|-----|
-| `worker-explorer` | haiku | Read, Glob, Grep | Fast codebase search |
-| `worker-builder` | sonnet | Read, Write, Edit, Bash, Glob, Grep | Implementation/testing/refactoring |
-| `worker-reviewer` | sonnet | Read, Glob, Grep, Bash | Code review/security analysis |
-| `worker-researcher` | sonnet | Read, Glob, Grep, WebFetch, WebSearch | External research |
-| `worker-architect` | opus | Read, Write, Edit, Glob, Grep | Complex design decisions |
+| Worker | Model | Primary Use |
+|--------|-------|-------------|
+| `worker-explorer` | haiku | Fast codebase search, web research, dependency mapping |
+| `worker-builder` | sonnet | Implementation, testing, refactoring |
+| `worker-reviewer` | opus | Code review, security audit, quality assessment |
+| `worker-researcher` | sonnet | Quick web research, API docs, library comparison |
+| `worker-research` | opus | Deep multi-source investigation, technology evaluation |
+| `worker-architect` | opus | Complex design decisions, ADRs, system architecture |
 
 ## Worker Focus Modes
 

@@ -1,7 +1,6 @@
 ---
 name: security-review
 description: Conduct security code reviews. Use when reviewing code for vulnerabilities, assessing security posture, or auditing applications. Covers security review checklist.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Security Review

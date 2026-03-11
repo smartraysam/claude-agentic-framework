@@ -1,7 +1,6 @@
 ---
 name: bash
 description: Write Bash scripts following best practices. Use when creating shell scripts, automation, or CLI tools. Covers safe scripting patterns.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Bash Scripting

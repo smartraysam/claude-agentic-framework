@@ -1,7 +1,6 @@
 ---
 name: testing
 description: Write effective tests for code quality and reliability. Use when implementing features, fixing bugs, or improving coverage. Covers unit, integration, and E2E testing.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, mcp__chrome-devtools__*
 ---
 
 # Testing Software

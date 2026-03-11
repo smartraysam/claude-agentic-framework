@@ -1,7 +1,6 @@
 ---
 name: rust
 description: Write Rust code following best practices. Use when developing Rust applications. Covers ownership, error handling, and async patterns.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Rust Development

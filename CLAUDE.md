@@ -15,7 +15,7 @@ These seven principles distill every rule, skill, and standard in this framework
 
 ### 1. Understand First
 
-Read before writing. Grep before creating. Never modify code you haven't read. Check what exists before building something new.
+Read before writing. Grep before creating. Never modify code you haven't read. Check what exists before building something new. For fast-evolving libraries, verify APIs via official docs or web search before assuming training data is current.
 
 ### 2. Prove It Works
 
@@ -78,6 +78,13 @@ bd sync                                 # Sync with git
 
 See `beads-workflow` skill for complete command reference.
 
+## Working Directories
+
+| Directory | Purpose | Lifecycle |
+|-----------|---------|-----------|
+| `./artifacts/` | Durable documents (plans, ADRs, PRDs, design specs) | Committed to repo |
+| `./scratchpad/` | Ephemeral working notes, exploration output, draft content | Gitignored, disposable |
+
 ## Personas
 
 | Command | Role | Use |
@@ -91,6 +98,17 @@ See `beads-workflow` skill for complete command reference.
 | `/swarm-plan` | Planning Orchestrator | Parallel exploration, decomposition |
 | `/swarm-execute` | Execution Orchestrator | Parallel workers, quality gates |
 | `/swarm-review` | Adversarial Reviewer | Multi-perspective code review |
+| `/swarm-research` | Research Orchestrator | Deep investigation, technology evaluation |
+
+## MCP Tools
+
+| Tool | Use For |
+|------|---------|
+| Sequential Thinking | Complex analysis, trade-off evaluation |
+| Chrome DevTools | Browser testing, performance profiling |
+| GitHub | PR creation, issue management |
+| Context7 | Library documentation lookup |
+| Filesystem | File system operations beyond workspace |
 
 ## Skills
 

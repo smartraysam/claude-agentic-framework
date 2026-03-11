@@ -1,7 +1,6 @@
 ---
 name: infrastructure
 description: Manage infrastructure as code. Use when provisioning resources, managing cloud infrastructure, or setting up environments. Covers Terraform and IaC patterns.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Infrastructure as Code

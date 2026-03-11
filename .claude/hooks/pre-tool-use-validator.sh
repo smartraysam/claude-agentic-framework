@@ -2,13 +2,11 @@
 # Pre-tool-use validator for swarm consistency
 # Validates file operations to prevent conflicts in multi-agent environments
 
-set -eo pipefail
-
 INPUT=$(cat)
 
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty')
-FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.path // empty')
-SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null || true)
+FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.path // empty' 2>/dev/null || true)
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty' 2>/dev/null || true)
 
 # Exit if not a file operation
 if [ -z "$FILE_PATH" ]; then

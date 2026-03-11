@@ -1,7 +1,6 @@
 ---
 name: optimizing-code
 description: Improve code performance without changing behavior. Use when code fails latency/throughput requirements. Covers profiling, caching, and algorithmic optimization.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Optimizing Code

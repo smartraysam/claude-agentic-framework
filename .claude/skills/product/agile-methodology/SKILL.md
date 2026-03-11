@@ -1,7 +1,6 @@
 ---
 name: agile-methodology
 description: Apply agile development practices. Use when planning sprints, running ceremonies, or improving team processes. Covers Scrum, Kanban, and agile principles.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Agile Methodology

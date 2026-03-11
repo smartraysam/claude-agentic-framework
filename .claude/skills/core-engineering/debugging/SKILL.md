@@ -1,7 +1,6 @@
 ---
 name: debugging
 description: Troubleshoot and fix bugs systematically. Use when errors occur, tests fail, or unexpected behavior is observed. Covers root cause analysis and debugging strategies.
-allowed-tools: Read, Bash, Glob, Grep, mcp__chrome-devtools__*
 ---
 
 # Debugging and Troubleshooting

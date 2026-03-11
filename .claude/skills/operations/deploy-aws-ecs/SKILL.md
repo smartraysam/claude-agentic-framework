@@ -1,7 +1,6 @@
 ---
 name: deploy-aws-ecs
 description: Deploy containerized applications to AWS ECS/Fargate. Use when deploying containers to AWS, managing ECS services, or setting up Fargate tasks. Covers task definitions and ECR.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Deploy to AWS ECS/Fargate

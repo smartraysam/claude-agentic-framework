@@ -1,14 +1,11 @@
 ---
 name: swarm-coordination
 description: Coordinate multi-agent swarm workflows. Use when working in parallel with other agents, managing shared resources, or orchestrating distributed tasks. Covers conflict prevention, handoffs, and state synchronization.
-allowed-tools: Read, Write, Bash, Glob, Grep
 ---
 
 # Swarm Coordination
 
-## Overview
-
-This skill provides protocols and patterns for consistent, conflict-free multi-agent development. Follow these guidelines when working alongside other Claude Code agents in the same codebase.
+Protocols and patterns for consistent, conflict-free multi-agent development. Follow these guidelines when working alongside other Claude Code agents in the same codebase.
 
 ## Core Principles
 
@@ -16,6 +13,10 @@ This skill provides protocols and patterns for consistent, conflict-free multi-a
 2. **File Locking**: Hooks automatically manage file locks - respect them
 3. **Session Isolation**: Each agent has a unique session ID for tracking
 4. **Clean Handoffs**: Always leave state that another agent can continue
+
+## File-Based Output
+
+Workers write results to `scratchpad/<task-id>.md`, not direct context. Only durable artifacts (ADRs, plans, PRDs) go to `artifacts/`. Orchestrator creates output targets before launching workers; workers write to assigned files; orchestrator reads and synthesizes.
 
 ## Workflows
 

@@ -1,7 +1,6 @@
 ---
 name: brainstorming
 description: Generate and explore ideas effectively. Use when starting new projects, solving problems, or exploring solutions. Covers ideation techniques and divergent thinking.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Brainstorming

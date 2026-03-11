@@ -1,7 +1,6 @@
 ---
 name: kotlin
 description: Write Kotlin code for Android following best practices. Use when developing with Jetpack Compose, Android SDK, or Kotlin projects. Covers coroutines, state management, and tooling.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Kotlin / Android Development
