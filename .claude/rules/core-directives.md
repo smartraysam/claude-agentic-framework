@@ -38,9 +38,9 @@ Working notes, exploration output, draft content, and in-progress thinking belon
 
 Use the prescribed planning sequence: PR-FAQ → PRD → ADR → Design Spec → Plan → Implementation. Do not skip phases. Each phase produces an artifact that gates the next. Skipping phases creates unvalidated assumptions that surface as bugs or rework.
 
-### 7. Follow Persona Protocols
+### 7. Follow Command Protocols
 
-Respect the handoff requirements between personas. Every handoff must include an artifact reference. Follow the protocols defined in the persona commands. Never hand off work without a concrete artifact that the receiving persona can verify.
+Respect the handoff requirements between commands. Every handoff must include an artifact reference. Follow the protocols defined in the command definitions. Never hand off work without a concrete artifact that the receiving command can verify.
 
 ## Decision Hierarchy
 
@@ -72,4 +72,4 @@ Store all ephemeral working content in `./scratchpad/`. This includes exploratio
 
 ### Handoffs
 
-Every handoff between personas or agents must include explicit artifact references — file path and a one-line description of what the artifact contains. The receiving agent must be able to verify the artifact exists before proceeding.
+Every handoff between commands or agents must include explicit artifact references — file path and a one-line description of what the artifact contains. The receiving agent must be able to verify the artifact exists before proceeding.
