@@ -14,36 +14,31 @@ Drop-in framework for optimized Claude Code workflows with specialized personas 
 These seven principles distill every rule, skill, and standard in this framework. Follow them and everything else follows.
 
 ### 1. Understand First
-
-Read before writing. Grep before creating. Never modify code you haven't read. Check what exists before building something new.
+Read before writing; grep before creating; verify APIs via docs before assuming training data is current.
 
 ### 2. Prove It Works
-
-Write tests for the customer use case first. Run them before committing. Every bug fix gets a regression test. All quality gates must pass — tests, linter, types, build.
+Write tests first, run quality gates (tests, linter, types, build) before every commit, and add a regression test for every bug fix.
 
 ### 3. Keep It Safe
-
-No secrets in code — use env vars or secret managers. Validate all external input. Parameterized queries only. Least privilege everywhere. Flag vulnerabilities immediately.
+No secrets in code, validate all input, use parameterized queries, apply least privilege, and flag vulnerabilities immediately.
 
 ### 4. Keep It Simple
-
-Small functions, single responsibility. No premature abstraction — three similar lines beat a bad helper. Delete dead code. Avoid `any` types. Fix warnings before committing.
+Single responsibility, no premature abstraction, delete dead code, avoid `any` types, fix warnings before committing.
 
 ### 5. Don't Repeat Yourself
-
-Check `.claude/skills/` before ad-hoc generation. Follow existing patterns in the codebase. Single source of truth for business logic. Extract only when duplication is real, not incidental.
+Check `.claude/skills/` before generating ad-hoc solutions; maintain a single source of truth for business logic.
 
 ### 6. Ship It
-
-Work on a branch, never main. Commit iteratively. Push to remote — work isn't done until `git push` succeeds. Never leave changes stranded locally.
+Work on a branch, commit iteratively, and push to remote — work isn't done until `git push` succeeds.
 
 ### 7. Leave a Trail
+Artifacts in `./artifacts/`, track work with Beads (`bd` CLI), document decisions in ADRs, name things clearly.
 
-Planning artifacts go in `./artifacts/`. Track work with Beads (`bd` CLI). Document architectural decisions in ADRs. Name things so the next person understands.
+Full details in `.claude/rules/` (auto-loaded).
 
 ## Tech Stack
 
-@.claude/rules/tech-strategy.md
+Defined in `.claude/rules/tech-strategy.md` — auto-loaded for every session.
 
 ## Workflow
 
@@ -78,6 +73,13 @@ bd sync                                 # Sync with git
 
 See `beads-workflow` skill for complete command reference.
 
+## Working Directories
+
+| Directory | Purpose | Lifecycle |
+|-----------|---------|-----------|
+| `./artifacts/` | Durable documents (plans, ADRs, PRDs, design specs) | Committed to repo |
+| `./scratchpad/` | Ephemeral working notes, exploration output, draft content | Gitignored, disposable |
+
 ## Personas
 
 | Command | Role | Use |
@@ -91,6 +93,16 @@ See `beads-workflow` skill for complete command reference.
 | `/swarm-plan` | Planning Orchestrator | Parallel exploration, decomposition |
 | `/swarm-execute` | Execution Orchestrator | Parallel workers, quality gates |
 | `/swarm-review` | Adversarial Reviewer | Multi-perspective code review |
+| `/swarm-research` | Research Orchestrator | Deep investigation, technology evaluation |
+
+## MCP Tools
+
+| Tool | Use For |
+|------|---------|
+| Sequential Thinking | Complex analysis, trade-off evaluation |
+| Chrome DevTools | Browser testing, performance profiling |
+| Context7 | Library documentation lookup |
+| Filesystem | File system operations beyond workspace |
 
 ## Skills
 

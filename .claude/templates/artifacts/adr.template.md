@@ -3,8 +3,8 @@
 <!--
 Architecture Decision Record
 Filename: artifacts/adr_NNNN_[topic].md (e.g., adr_0001_database_choice.md)
-Owner: Architect (/architect)
-Handoff to: Builder (/builder), Security Auditor (/security-auditor)
+Owner: Engineering
+Handoff to: Engineering (implementation), /swarm-review (security review)
 Related Skills: designing-systems, designing-apis, domain-driven-design, cloud-native-patterns, writing-adrs
 
 Format: Based on MADR (Markdown Any Decision Records) - https://adr.github.io/madr/

@@ -1,6 +1,5 @@
 ---
 description: System design, technical specs, and architecture decisions
-allowed-tools: Read, Glob, Grep, Write, Task, mcp__sequential-thinking__*
 argument-hint: [design-topic]
 ---
 
@@ -41,11 +40,13 @@ Use for complex design decisions:
 ## Output
 Save artifacts to `./artifacts/adr_[topic].md` or `./artifacts/system_design_[component].md`
 
+Working notes go to `scratchpad/`, final documents go to `artifacts/`.
+
 ## Related Skills
 `designing-systems`, `designing-apis`, `domain-driven-design`, `cloud-native-patterns`
 
 ## Handoff
-- To Builder: After ADR approval
-- To Security Auditor: For security review
+- To `/swarm-execute`: After ADR approval
+- To `/swarm-review`: For security review
 
 $ARGUMENTS

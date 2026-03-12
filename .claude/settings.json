@@ -1,4 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "alwaysThinkingEnabled": true,
+  "cleanupPeriodDays": 90,
   "permissions": {
     "allow": [
       "// === Core Claude Tools (Read/Navigation) ===",
@@ -204,6 +207,9 @@
       "mcp__context7__resolve-library-id",
       "mcp__context7__query-docs",
       "mcp__sequential-thinking__sequentialthinking",
+      "mcp__chrome-devtools__*",
+      "mcp__filesystem__*",
+      "// ide tools are provided by editor extensions (VS Code, JetBrains), not .mcp.json",
       "mcp__ide__getDiagnostics",
       "mcp__ide__executeCode",
 
@@ -258,7 +264,30 @@
       "Bash(docker rmi:*)",
 
       "// === Dangerous Permission Changes ===",
-      "Bash(chmod 777:*)"
+      "Bash(chmod 777:*)",
+
+      "// === Pipe-to-Shell (Remote Code Execution) ===",
+      "Bash(curl * | bash*)",
+      "Bash(wget * | bash*)",
+      "Bash(curl * | sh*)",
+      "Bash(wget * | sh*)",
+
+      "// === Sensitive Credential Paths (Read) ===",
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.azure/**)",
+      "Read(~/.config/gcloud/**)",
+
+      "// === Shell Profile & SSH Key Protection (Edit/Write) ===",
+      "Edit(~/.bashrc)",
+      "Edit(~/.zshrc)",
+      "Edit(~/.bash_profile)",
+      "Write(~/.bashrc)",
+      "Write(~/.zshrc)",
+      "Write(~/.bash_profile)",
+      "Edit(~/.ssh/**)",
+      "Write(~/.ssh/**)"
     ]
   },
   "enableAllProjectMcpServers": true,
@@ -276,7 +305,7 @@
     ],
     "SessionStart": [
       {
-        "matcher": "startup|resume",
+        "matcher": "startup|resume|compact|clear",
         "hooks": [
           {
             "type": "command",
@@ -288,7 +317,7 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Write|Edit|MultiEdit",
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
         "hooks": [
           {
             "type": "command",
@@ -300,6 +329,11 @@
       {
         "matcher": "Bash",
         "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/dangerous-command-guard.sh",
+            "timeout": 5
+          },
           {
             "type": "command",
             "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit-verification.sh",
@@ -320,11 +354,6 @@
           {
             "type": "command",
             "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use-tracker.sh",
-            "timeout": 5
-          },
-          {
-            "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/post-tool-use-beads-tracker.sh",
             "timeout": 5
           }
         ]

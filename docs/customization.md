@@ -9,13 +9,12 @@ Create `.claude/commands/my-persona.md`:
 ```yaml
 ---
 description: What this persona does
-allowed-tools: Read, Write, Edit, Bash
 ---
 ```
 
 Add persona instructions below the frontmatter.
 
-See `templates/claude_mechanisms/command.template.md` for the full format.
+See `.claude/templates/command.template.md` for the full format.
 
 ## Adding a Skill
 
@@ -25,7 +24,6 @@ See `templates/claude_mechanisms/command.template.md` for the full format.
 ---
 name: my-skill
 description: What it does
-allowed-tools: Read, Write, Edit
 ---
 ```
 
@@ -42,7 +40,7 @@ allowed-tools: Read, Write, Edit
 }
 ```
 
-See `templates/claude_mechanisms/skill.template.md` for the full format.
+See `.claude/templates/skill.template.md` for the full format.
 
 ## Adding a Rule
 
@@ -74,12 +72,14 @@ Create `.claude/agents/worker-mytype.md`:
 ---
 name: worker-mytype
 description: What it does
-tools: Read, Glob, Grep
+permissionMode: acceptEdits
 model: haiku
 ---
 ```
 
 Models: `haiku` (fast), `sonnet` (capable), `opus` (complex reasoning)
+
+Use `permissionMode: default` for workers that should prompt before editing (e.g., explorers).
 
 ## Required: Configure Your Tech Stack
 

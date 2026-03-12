@@ -49,6 +49,42 @@ Decompose features into actionable plans using parallel exploration swarms.
 - `adr_[key-decision].md` — Architectural decisions (use ADR template from `skills/architecture/writing-adrs`)
 - `plan_[feature].md` — Implementation steps
 
+## Worker Types
+
+| Worker | Model | Primary Use |
+|--------|-------|-------------|
+| `worker-explorer` | haiku | Fast codebase search, web research, dependency mapping |
+| `worker-builder` | sonnet | Implementation, testing, refactoring |
+| `worker-reviewer` | opus | Code review, security audit, quality assessment |
+| `worker-researcher` | sonnet | Quick web research, API docs, library comparison |
+| `worker-research` | opus | Deep multi-source investigation, technology evaluation |
+| `worker-architect` | opus | Complex design decisions, ADRs, system architecture |
+
+## Swarm Patterns
+
+### Parallel Exploration
+```
+Orchestrator spawns 4-8 worker-explorer agents simultaneously
+Each searches different parts of codebase
+Results aggregated for next phase
+```
+
+### Divide and Conquer
+```
+1. worker-architect designs solution
+2. Orchestrator decomposes into N tasks
+3. N worker-builder agents execute in parallel
+4. worker-reviewer validates each output
+5. Orchestrator integrates
+```
+
+### Security Sweep
+```
+worker-reviewer (focus: security) scans all components in parallel
+Findings aggregated and prioritized
+worker-builder fixes critical/high issues
+```
+
 ## Parallel Exploration Pattern
 
 ```bash
@@ -74,6 +110,13 @@ bd create --title="[Task 2: Core Logic]" --type=task
 bd dep add <task2-id> <task1-id>
 ```
 
+## Performance Tips
+
+- Launch multiple explorers for broad searches
+- Use worker-architect for decisions, worker-builder for execution
+- Parallelize independent tasks (max 8 concurrent workers)
+- Keep worker prompts under 500 tokens for fast startup
+
 ## Constraints
 
 - NO skipping artifact creation for features > 3 days
@@ -92,13 +135,31 @@ Every planning session MUST produce:
 3. Dependency graph showing task order
 4. Handoff summary for /execute command
 
+## Product Planning
+
+### PR-FAQ
+Use `writing-pr-faqs` skill for structure and template.
+
+### PRD
+Use `writing-prds` skill for structure and template.
+
+### Architecture Design Process
+1. **Understand** — Map existing system with Grep and Glob
+2. **Reason** — Enumerate constraints and evaluate options
+3. **Design** — Create ADR with trade-off matrix
+4. **Validate** — Verify design fits existing patterns
+
+### Output
+- `scratchpad/` for planning exploration and working notes
+- `artifacts/` for final documents (PR-FAQ, PRD, ADR, plan)
+
 ## Related Skills
 
-`decomposing-tasks`, `beads-workflow`, `swarm-coordination`, `writing-adrs`
+`decomposing-tasks`, `beads-workflow`, `swarm-coordination`, `writing-adrs`, `designing-systems`, `designing-apis`, `writing-pr-faqs`, `writing-prds`, `requirements-analysis`
 
 ## Handoff
 
-- To Builder: Plan artifact + Beads ready for `bd ready`
-- To Architect: Complex decisions requiring ADR review
+- To `/swarm-execute`: Plan artifact + Beads ready for `bd ready`
+- To `/architect`: Complex decisions requiring ADR review
 
 $ARGUMENTS

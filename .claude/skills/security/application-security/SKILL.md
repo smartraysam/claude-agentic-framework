@@ -1,7 +1,6 @@
 ---
 name: application-security
 description: Secure applications against common vulnerabilities. Use when reviewing code for security, implementing security controls, or hardening applications. Covers OWASP Top 10.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Application Security

@@ -26,18 +26,9 @@ Each persona reads the previous artifacts and builds on them.
 PR creation       →  gh pr create
 ```
 
-## Worker Completion (Landing the Plane)
+## Worker Completion
 
-Every worker or session MUST complete these steps before handoff:
-
-1. **File issues** for remaining work (`bd create`)
-2. **Run quality gates** if code changed (lint, typecheck, test, build)
-3. **Update issue status** (`bd close <id>`)
-4. **Push to remote** — work is NOT complete until `git push` succeeds
-5. **Cleanup** — release locks, sync Beads
-6. **Report** — summarize what was done and what remains
-
-See `AGENTS.md` for the full protocol.
+Every worker or session MUST follow the "Landing the Plane" protocol in `AGENTS.md`. The critical requirement: work is NOT complete until `git push` succeeds.
 
 ## Session Handoffs
 

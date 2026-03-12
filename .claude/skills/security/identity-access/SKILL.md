@@ -1,7 +1,6 @@
 ---
 name: identity-access
 description: Implement identity and access management. Use when designing authentication, authorization, or user management. Covers OAuth2, OIDC, and RBAC.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Identity & Access Management

@@ -1,7 +1,6 @@
 ---
 name: compliance
 description: Ensure regulatory compliance. Use when implementing GDPR, HIPAA, PCI-DSS, or SOC2 requirements. Covers compliance frameworks and controls.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Compliance

@@ -1,7 +1,6 @@
 ---
 name: [skill-name]
 description: [Clear description of what this skill does and when Claude should use it. Include trigger phrases like "Use when..." to help with skill invocation.]
-allowed-tools: Read, Glob, Grep
 ---
 
 <!--
@@ -12,7 +11,7 @@ Required fields:
   - description: max 1024 chars, CRITICAL for auto-discovery
 
 Optional fields:
-  - allowed-tools: Comma-separated list to restrict tool access
+  (none — skills do not support tool restrictions)
 
 Description best practices:
   GOOD: "API design skill. Use when designing REST APIs, GraphQL schemas, or gRPC services."

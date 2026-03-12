@@ -1,9 +1,8 @@
 ---
 name: worker-[type]
 description: [Brief description of worker purpose. Used for parallel [task type].]
-tools: Read, Glob, Grep
+permissionMode: acceptEdits
 model: haiku
-# permissionMode: default
 # skills: skill-name-1, skill-name-2
 ---
 
@@ -15,12 +14,15 @@ Required fields:
   - description: max 1024 chars, include "when to use" triggers
 
 Optional fields:
-  - tools: Comma-separated list (inherits all if omitted)
-  - model: haiku (fast), sonnet (balanced), opus (complex)
   - permissionMode: default|acceptEdits|bypassPermissions|plan
+      Use "acceptEdits" for workers that read and write files (most workers).
+      Use "bypassPermissions" only when the orchestrator has already validated safety.
+  - model: haiku (fast), sonnet (balanced), opus (complex)
   - skills: Comma-separated skill names to auto-load
 
-NOTE: Agents use "tools:" not "allowed-tools:" (unlike commands)
+NOTE: Use permissionMode to control agent access, not "tools:". Restricting
+individual tools via "tools:" is fragile; permissionMode provides the right
+granularity for swarm workers.
 -->
 
 # [Worker Type] Worker

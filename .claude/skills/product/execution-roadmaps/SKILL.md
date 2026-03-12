@@ -1,7 +1,6 @@
 ---
 name: execution-roadmaps
 description: Create execution roadmaps for projects. Use when planning multi-phase projects or feature rollouts. Covers phased delivery and milestone planning.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Execution Roadmaps

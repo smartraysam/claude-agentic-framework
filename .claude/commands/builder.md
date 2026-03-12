@@ -1,6 +1,5 @@
 ---
 description: Implementation agent for coding, debugging, and testing
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, mcp__github__*
 argument-hint: [task-description]
 ---
 
@@ -37,11 +36,13 @@ Translate plans into working, tested, production-ready code.
 - ALWAYS implement complete logic
 - ALWAYS use Grep before creating new classes/functions
 
+## Output
+Working notes go to `scratchpad/`, final documents go to `artifacts/`.
+
 ## Related Skills
 `implementing-code`, `debugging`, `testing`, `test-driven-development`
 
 ## Handoff
-- To QA Engineer: After implementation
-- To Swarm Review: For code review
+- To `/swarm-review`: After implementation and for code review
 
 $ARGUMENTS

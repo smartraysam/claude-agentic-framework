@@ -3,8 +3,8 @@
 <!--
 Incident Post-Mortem Report
 Filename: artifacts/postmortem_[incident-id].md
-Owner: Architect (/architect)
-Handoff to: Architect (/architect) for design changes, Builder (/builder) for fixes
+Owner: Engineering / SRE
+Handoff to: Engineering for design changes and fixes
 Related Skills: incident-management, observability, infrastructure
 
 Blameless culture: Focus on systems and processes, not individuals.

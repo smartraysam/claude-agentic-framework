@@ -1,7 +1,6 @@
 ---
 name: chaos-engineering
 description: Test system resilience through controlled failures. Use when validating fault tolerance, disaster recovery, or system reliability. Covers chaos experiments.
-allowed-tools: Read, Write, Bash, Glob, Grep
 ---
 
 # Chaos Engineering

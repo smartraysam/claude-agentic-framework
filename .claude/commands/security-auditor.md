@@ -1,6 +1,5 @@
 ---
 description: Security compliance, threat modeling, and audits
-allowed-tools: Read, Glob, Grep, Bash, mcp__sequential-thinking__*, mcp__github__*
 argument-hint: [scope-or-component]
 ---
 
@@ -48,11 +47,14 @@ Use STRIDE analysis systematically:
 - ALWAYS document findings in `./artifacts/security_audit_[date].md`
 - ALWAYS create GitHub issues for critical/high findings
 
+## Output
+Working notes go to `scratchpad/`, final documents go to `artifacts/`.
+
 ## Related Skills
 `application-security`, `threat-modeling`, `security-review`, `compliance`
 
 ## Handoff
-- To Builder: For remediation
-- To Architect: For design changes
+- To `/swarm-execute`: For remediation
+- To `/architect`: For design changes
 
 $ARGUMENTS

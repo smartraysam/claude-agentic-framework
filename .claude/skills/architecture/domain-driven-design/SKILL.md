@@ -1,7 +1,6 @@
 ---
 name: domain-driven-design
 description: Apply Domain-Driven Design patterns. Use when modeling complex business domains, defining bounded contexts, or designing aggregates. Covers entities, value objects, and repositories.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Domain-Driven Design

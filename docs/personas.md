@@ -15,6 +15,7 @@ Personas are expert modes. Use a slash command to switch.
 | `/swarm-plan` | Planning orchestrator | Parallel exploration, task decomposition |
 | `/swarm-execute` | Execution orchestrator | Parallel workers, quality gates |
 | `/swarm-review` | Adversarial reviewer | Multi-perspective code review |
+| `/swarm-research` | Research orchestrator | Deep investigation, technology evaluation |
 
 ## Usage
 
@@ -26,7 +27,7 @@ Just use the command with your task:
 /security-auditor payment system
 ```
 
-Or use without arguments to continue from the previous persona's work:
+Or chain them for a workflow:
 
 ```
 /architect user auth           # writes design
@@ -36,15 +37,7 @@ Or use without arguments to continue from the previous persona's work:
 
 ## How Handoffs Work
 
-```
-/architect        →  artifacts/adr_*.md, system_design_*.md
-       ↓
-/builder          →  Code + tests
-       ↓
-/swarm-review     →  Feedback
-```
-
-Each persona reads the previous artifacts and builds on them.
+Each persona reads the previous artifacts and builds on them. See [handoffs.md](handoffs.md).
 
 ## Creating Your Own
 

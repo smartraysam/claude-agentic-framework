@@ -1,7 +1,6 @@
 ---
 name: implementing-code
 description: Write clean, efficient, maintainable code. Use when implementing features, writing functions, or creating new modules. Covers SOLID principles, error handling, and code organization.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Implementing Code

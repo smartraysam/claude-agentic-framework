@@ -2,10 +2,8 @@
 # SubagentStop hook for validating subagent task completion
 # Ensures subagents complete their assigned work before returning
 
-set -e
-
 INPUT=$(cat)
-STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false')
+STOP_HOOK_ACTIVE=$(echo "$INPUT" | jq -r '.stop_hook_active // false' 2>/dev/null || echo "false")
 
 # Prevent infinite loops
 if [ "$STOP_HOOK_ACTIVE" = "true" ]; then
@@ -17,6 +15,8 @@ STATE_DIR="$PROJECT_DIR/.claude/hooks/.state"
 
 # Subagent completion is generally validated by the orchestrator
 # This hook provides feedback for logging and coordination
+
+mkdir -p "$STATE_DIR" 2>/dev/null || true
 
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 echo "[$TIMESTAMP] Subagent task completed" >> "$STATE_DIR/subagent.log" 2>/dev/null || true

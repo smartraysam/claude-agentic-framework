@@ -4,7 +4,7 @@
 Visual/UI Design Specification
 Filename: artifacts/design_spec_[component].md
 Owner: UI/UX Designer (/ui-ux-designer)
-Handoff to: Builder (/builder), QA Engineer (/qa-engineer) for accessibility testing
+Handoff to: Engineering (implementation), /code-check for accessibility review
 Related Skills: interface-design, accessibility, design-systems, visual-assets
 
 Design Principles:

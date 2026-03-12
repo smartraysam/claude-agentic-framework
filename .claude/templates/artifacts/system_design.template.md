@@ -3,8 +3,8 @@
 <!--
 System Design Document (Technical Architecture)
 Filename: artifacts/system_design_[system].md
-Owner: Architect (/architect)
-Handoff to: Builder (/builder), Security Auditor (/security-auditor)
+Owner: Engineering
+Handoff to: Engineering (implementation), /swarm-review (security and reliability review)
 Related Skills: designing-systems, designing-apis, cloud-native-patterns, domain-driven-design
 
 This document covers TECHNICAL architecture. For UI/visual design, use design_spec.template.md
@@ -337,8 +337,8 @@ erDiagram
 | Environment | Purpose | Infrastructure |
 |-------------|---------|----------------|
 | Development | Local development | Docker Compose |
-| Staging | Pre-production testing | [Reduced AWS setup] |
-| Production | Live system | [Full AWS setup] |
+| Staging | Pre-production testing | [Reduced cloud setup] |
+| Production | Live system | [Full cloud setup] |
 
 ### CI/CD Pipeline
 
@@ -435,6 +435,7 @@ graph LR
 | Architect | | | Pending |
 | Engineering Lead | | | Pending |
 | Security | | | Pending |
+| SRE | | | Pending |
 
 ---
 

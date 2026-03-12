@@ -8,12 +8,10 @@
 # - Push to non-main branches: ALLOWED
 # - Push to main: BLOCKED
 
-set -e
-
 INPUT=$(cat)
 
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty')
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null || true)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty' 2>/dev/null || true)
 
 # Only process Bash tool
 if [ "$TOOL_NAME" != "Bash" ]; then

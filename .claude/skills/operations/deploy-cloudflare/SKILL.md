@@ -1,7 +1,6 @@
 ---
 name: deploy-cloudflare
 description: Deploy to Cloudflare edge platform. Use when deploying static sites to Pages, serverless functions to Workers, or configuring CDN/DNS. Covers Wrangler CLI.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Deploy to Cloudflare

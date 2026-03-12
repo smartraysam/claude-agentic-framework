@@ -1,7 +1,6 @@
 ---
 name: decomposing-tasks
 description: Break down large tasks into smaller, actionable items. Use when planning sprints, estimating work, or creating implementation plans. Covers task breakdown strategies.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Decomposing Tasks

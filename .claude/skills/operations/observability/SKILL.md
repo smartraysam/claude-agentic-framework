@@ -1,7 +1,6 @@
 ---
 name: observability
 description: Implement observability solutions. Use when setting up monitoring, logging, or tracing. Covers OpenTelemetry, metrics, and alerting.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Observability

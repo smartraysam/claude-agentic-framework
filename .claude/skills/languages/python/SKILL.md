@@ -1,7 +1,6 @@
 ---
 name: python
 description: Write Python code following best practices. Use when developing Python applications. Covers type hints, async, and modern tooling.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Python Development

@@ -1,7 +1,6 @@
 ---
 name: requirements-analysis
 description: Analyze and refine product requirements. Use when clarifying scope, identifying gaps, or validating requirements. Covers requirement types and analysis techniques.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Requirements Analysis

@@ -130,7 +130,7 @@ Verify findings before deletion (false positives with dynamic imports).
 
 ## Handoff
 
-- To Builder: With Beads for specific fixes and refactoring
-- To Architect: For systemic architectural issues
+- To `/swarm-execute`: With Beads for specific fixes and refactoring
+- To `/architect`: For systemic architectural issues
 
 $ARGUMENTS

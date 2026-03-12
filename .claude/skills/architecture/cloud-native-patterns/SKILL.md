@@ -1,7 +1,6 @@
 ---
 name: cloud-native-patterns
 description: Apply cloud-native architecture patterns. Use when designing for scalability, resilience, or cloud deployment. Covers microservices, containers, and distributed systems.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Cloud-Native Patterns

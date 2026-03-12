@@ -3,8 +3,8 @@
 <!--
 Security Audit Report
 Filename: artifacts/security_audit_[date].md
-Owner: Security Auditor (/security-auditor)
-Handoff to: Builder (/builder) for remediation, Architect (/architect) for design changes
+Owner: Security / Engineering
+Handoff to: Engineering for remediation, Architecture review for design changes
 Related Skills: application-security, threat-modeling, security-review, compliance, identity-access
 
 Methodology:
@@ -62,7 +62,7 @@ For cloud-native systems, also consider:
 
 ### Pre-Audit Checklist
 
-From `/security-auditor` persona requirements:
+Pre-audit security checklist requirements:
 
 - [ ] Authentication/Authorization reviewed
 - [ ] Input validation verified

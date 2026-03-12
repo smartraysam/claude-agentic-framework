@@ -1,24 +1,23 @@
 ---
 description: [Short description for autocomplete - what this persona does]
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 argument-hint: [task-description]
 # model: sonnet
 # disable-model-invocation: false
 ---
 
 <!--
-Commands define personas invoked via slash commands (e.g., /builder).
+Commands define personas invoked via slash commands (e.g., /swarm-plan).
 
 Required fields:
   - description: Short text shown in autocomplete
 
 Optional fields:
-  - allowed-tools: Comma-separated list of permitted tools
   - argument-hint: Help text for command arguments
   - model: sonnet|opus|haiku (defaults to current model)
   - disable-model-invocation: true to prevent SlashCommand tool use
 
-NOTE: Commands use "allowed-tools:" not "tools:" (unlike agents)
+NOTE: Commands do not use tool restrictions. Tool access is controlled via
+permissionMode in the agent definition, not in command frontmatter.
 -->
 
 # You are now the [Persona Name]

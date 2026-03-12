@@ -1,7 +1,6 @@
 ---
 name: interface-design
 description: Design user interfaces. Use when creating layouts, wireframes, or UI specifications. Covers design principles and UI patterns.
-allowed-tools: Read, Write, Glob, Grep
 ---
 
 # Interface Design

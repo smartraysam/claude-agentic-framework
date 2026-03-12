@@ -1,7 +1,6 @@
 ---
 name: deploy-railway
 description: Deploy applications to Railway. Use when deploying services, databases, or full-stack applications to Railway PaaS. Covers Railway CLI and configuration.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Deploy to Railway

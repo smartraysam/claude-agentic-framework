@@ -3,8 +3,8 @@
 <!--
 Product Requirements Document
 Filename: artifacts/prd_[feature].md
-Owner: Architect (/architect)
-Handoff to: Architect (/architect), UI/UX Designer (/ui-ux-designer)
+Owner: Product
+Handoff to: Engineering (technical feasibility), /ui-ux-designer (visual design)
 Related Skills: writing-prds, decomposing-tasks, requirements-analysis
 -->
 
@@ -140,8 +140,8 @@ Use INVEST criteria for all stories:
 
 After PRD approval:
 
-1. [ ] **Architect Review**: Technical feasibility assessment
-   - Trigger: `/architect`
+1. [ ] **Architecture Review**: Technical feasibility assessment
+   - Trigger: `/swarm-plan` or direct session
    - Output: ADR (`artifacts/adr_[topic].md`)
 
 2. [ ] **UI/UX Designer**: Visual design and wireframes
@@ -149,7 +149,7 @@ After PRD approval:
    - Output: Design Spec (`artifacts/design_spec_[component].md`)
 
 3. [ ] **Engineering Estimate**: Effort estimation and decomposition
-   - Trigger: `/builder` or `/architect`
+   - Trigger: `/swarm-plan`
    - Output: Implementation Plan (`artifacts/plan_[task].md`)
 
 4. [ ] **Create Beads Issues**: Decompose into trackable work items

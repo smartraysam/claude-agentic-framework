@@ -14,31 +14,19 @@ Browser automation with deep debugging — performance traces, network inspectio
 
 **Best for:** QA testing, frontend debugging, performance analysis
 
-### GitHub
-Direct integration with repositories — PRs, issues, commits, code search.
-
-**Best for:** Code review workflows, issue management
-
-**Requires:** `GITHUB_TOKEN` environment variable
-
 ### Context7
 Up-to-date documentation and code examples for any library via Context7.
 
 **Best for:** Researching library APIs, finding code examples, validating implementation patterns
 
+### Filesystem
+File system operations beyond the workspace boundary.
+
+**Best for:** Cross-project file access, operations outside the working directory
+
 ## Setup
 
 The servers are configured in `.mcp.json`. Most work out of the box.
-
-### GitHub Token
-
-Set your token for GitHub integration:
-
-```bash
-export GITHUB_TOKEN="ghp_your_token_here"
-```
-
-Or add to your shell profile (`~/.zshrc`, `~/.bashrc`).
 
 ## Adding More Servers
 
@@ -62,30 +50,23 @@ Edit `.mcp.json`:
 
 | Server | Purpose | When to Add |
 |--------|---------|-------------|
+| GitHub | PRs, issues, code search | GitHub-heavy workflows (requires `GITHUB_TOKEN`) |
 | PostgreSQL | Database queries | Working with Postgres |
 | Brave Search | Web search | Research-heavy work |
 | Slack | Team messaging | Team coordination |
 | Linear | Issue tracking | If you use Linear |
 
-### PostgreSQL Example
+### GitHub Example
 
 ```json
-"postgres": {
+"github": {
   "command": "npx",
-  "args": ["@anthropic-ai/mcp-server-postgres"],
+  "args": ["@anthropic-ai/mcp-server-github"],
   "env": {
-    "DATABASE_URL": "${DATABASE_URL}"
+    "GITHUB_TOKEN": "${GITHUB_TOKEN}"
   }
 }
 ```
-
-## Not Included (and Why)
-
-| Server | Reason |
-|--------|--------|
-| Memory | Redundant with claude-mem plugin |
-| Puppeteer | Chrome DevTools is superior |
-| Filesystem | Claude Code has built-in file tools |
 
 ## Troubleshooting
 
@@ -94,14 +75,6 @@ Edit `.mcp.json`:
 Check logs:
 ```bash
 claude mcp list
-```
-
-### GitHub auth failing
-
-Verify token:
-```bash
-echo $GITHUB_TOKEN
-gh auth status
 ```
 
 ### Permission denied

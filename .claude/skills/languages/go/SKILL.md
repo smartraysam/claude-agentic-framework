@@ -1,7 +1,6 @@
 ---
 name: go
 description: Write Go code following best practices. Use when developing Go applications. Covers error handling, concurrency, and project structure.
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
 # Go Development

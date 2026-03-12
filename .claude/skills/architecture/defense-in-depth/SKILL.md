@@ -1,7 +1,6 @@
 ---
 name: defense-in-depth
 description: Apply layered security architecture. Use when designing security controls, hardening systems, or reviewing security posture. Covers multiple security layers.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Defense in Depth

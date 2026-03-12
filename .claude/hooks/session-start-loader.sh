@@ -2,18 +2,22 @@
 # Session start hook for swarm context loading
 # Loads project context, beads status, and swarm state
 
-set -eo pipefail
-
 INPUT=$(cat)
-SOURCE=$(echo "$INPUT" | jq -r '.source // "startup"')
-SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+SOURCE=$(echo "$INPUT" | jq -r '.source // "startup"' 2>/dev/null || echo "startup")
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty' 2>/dev/null || true)
 
 PROJECT_DIR="${CLAUDE_PROJECT_DIR:-$(pwd)}"
 STATE_DIR="$PROJECT_DIR/.claude/hooks/.state"
-mkdir -p "$STATE_DIR"
+LOCK_DIR="$PROJECT_DIR/.claude/hooks/.locks"
+mkdir -p "$STATE_DIR" "$LOCK_DIR" 2>/dev/null || true
 
 # Clean up session files older than 24 hours
 find "$STATE_DIR" -name "session_*.json" -type f -mtime +1 -delete 2>/dev/null || true
+
+# Clean stale locks (>5 min old)
+if [ -d "$LOCK_DIR" ]; then
+    find "$LOCK_DIR" -name "*.lock" -mmin +5 -delete 2>/dev/null || true
+fi
 
 # Initialize session tracking
 SESSION_SHORT=$(echo "$SESSION_ID" | cut -c1-8)
@@ -24,8 +28,21 @@ CONTEXT=""
 
 # Load Beads status if available
 if command -v bd &> /dev/null && [ -d "$PROJECT_DIR/.beads" ]; then
-    READY_COUNT=$(bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
-    OPEN_COUNT=$(bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    if command -v timeout >/dev/null 2>&1; then
+        TIMEOUT_CMD="timeout"
+    elif command -v gtimeout >/dev/null 2>&1; then
+        TIMEOUT_CMD="gtimeout"
+    else
+        TIMEOUT_CMD=""
+    fi
+
+    if [ -n "$TIMEOUT_CMD" ]; then
+        READY_COUNT=$($TIMEOUT_CMD 3 bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+        OPEN_COUNT=$($TIMEOUT_CMD 3 bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    else
+        READY_COUNT=$(bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+        OPEN_COUNT=$(bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    fi
 
     if [ "$OPEN_COUNT" != "0" ] || [ "$READY_COUNT" != "0" ]; then
         CONTEXT="$CONTEXT

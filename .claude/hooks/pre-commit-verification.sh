@@ -3,13 +3,11 @@
 # Event: PreToolUse (Bash)
 # Purpose: Ensure tests and linting pass before git commits
 
-set -e
-
 INPUT=$(cat)
 
 PROJECT_DIR="${CLAUDE_PROJECT_DIR:-$(pwd)}"
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty')
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null || true)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty' 2>/dev/null || true)
 
 # Only process Bash tool with git commit commands
 if [ "$TOOL_NAME" != "Bash" ]; then

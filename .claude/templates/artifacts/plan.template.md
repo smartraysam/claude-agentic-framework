@@ -3,8 +3,8 @@
 <!--
 Implementation Plan
 Filename: artifacts/plan_[task].md
-Owner: Builder (/builder) or Architect (/architect)
-Handoff to: Builder (/builder), QA Engineer (/qa-engineer)
+Owner: Engineering
+Handoff to: Engineering (implementation), /code-check (review), /swarm-review (audit)
 Related Skills: implementing-code, debugging, testing, test-driven-development
 -->
 

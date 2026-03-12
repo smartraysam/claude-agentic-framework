@@ -1,7 +1,6 @@
 ---
 name: accessibility
 description: Ensure digital accessibility. Use when designing for accessibility, auditing WCAG compliance, or implementing a11y features. Covers WCAG 2.1 guidelines.
-allowed-tools: Read, Glob, Grep
 ---
 
 # Accessibility

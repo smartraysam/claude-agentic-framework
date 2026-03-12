@@ -9,10 +9,10 @@ Hooks run automatically at key points in Claude Code's lifecycle.
 | `session-start-loader.sh` | SessionStart | Load Beads status, detect active swarm agents, process handoffs, cleanup stale sessions |
 | `skill-activation-prompt.sh` | UserPromptSubmit | Suggest relevant skills based on context |
 | `pre-tool-use-validator.sh` | PreToolUse | File locking, secret detection, protected file enforcement |
+| `dangerous-command-guard.sh` | PreToolUse (Bash) | Guard against dangerous shell commands (force push, rm -rf, etc.) |
 | `pre-push-main-blocker.sh` | PreToolUse (Bash) | Block direct pushes to main/master branch |
 | `pre-commit-verification.sh` | PreToolUse (Bash) | Pre-commit quality checks |
-| `post-tool-use-tracker.sh` | PostToolUse | Track file changes |
-| `post-tool-use-beads-tracker.sh` | PostToolUse | Sync changes with Beads |
+| `post-tool-use-tracker.sh` | PostToolUse | Track file changes and sync with Beads |
 | `stop-validator.sh` | Stop | Release file locks, cleanup session state, warn about uncommitted changes |
 | `subagent-stop-validator.sh` | SubagentStop | Log swarm worker completion |
 
@@ -95,7 +95,7 @@ chmod +x .claude/hooks/my-hook.sh
 }
 ```
 
-See `templates/claude_mechanisms/hook.template.sh` for the full template.
+See `.claude/templates/hook.template.sh` for the full template.
 
 ## Hook Input
 

@@ -3,8 +3,8 @@
 <!--
 Press Release / Frequently Asked Questions
 Filename: artifacts/pr_faq_[feature].md
-Owner: Architect (/architect)
-Handoff to: Architect (/architect) for feasibility, then PRD creation
+Owner: Product
+Handoff to: Engineering for feasibility review, then PRD creation
 Related Skills: writing-pr-faqs, brainstorming, requirements-analysis
 
 This document comes BEFORE the PRD in the planning process.

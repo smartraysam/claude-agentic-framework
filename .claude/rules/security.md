@@ -4,13 +4,22 @@ Deep-dive reference for security reviews. See Core Principle 3 ("Keep It Safe") 
 
 ## Security Checklist
 
-- [ ] No hardcoded secrets or credentials
-- [ ] All user input is validated and sanitized
+- [ ] No hardcoded secrets or credentials (enforce via pre-commit secret scanner + CI)
+- [ ] All user input is validated and sanitized (enforce via input validation middleware)
 - [ ] SQL queries use parameterized statements
 - [ ] Authentication and authorization are properly implemented
 - [ ] Sensitive data is encrypted at rest and in transit
 - [ ] Error messages don't expose internal details
-- [ ] Dependencies are up to date and vulnerability-free
+- [ ] Dependencies are up to date and vulnerability-free (enforce via automated dependency scanning)
+
+## Data Routing
+
+**No Silent External Data Routing**: Data must not leave the system boundary without explicit authorization and documentation.
+
+- All external API calls, webhooks, and data exports must be explicitly documented in the architecture and code
+- No data should leave the system boundary without clear authorization from an appropriate owner
+- Log all outbound data transfers for audit purposes
+- This applies to third-party integrations, analytics pipelines, and monitoring agents — any component that transmits data externally must be inventoried and reviewed
 
 ## OWASP Top 10 2021
 
