@@ -52,7 +52,7 @@ Then try:
 /architect hello
 ```
 
-You should see Claude adopt the Architect persona.
+You should see Claude adopt the Architect command.
 
 ## Next Steps
 

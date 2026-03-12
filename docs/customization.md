@@ -1,18 +1,18 @@
 # Customization
 
-Add your own personas, skills, rules, and hooks.
+Add your own commands, skills, rules, and hooks.
 
-## Adding a Persona
+## Adding a Command
 
-Create `.claude/commands/my-persona.md`:
+Create `.claude/commands/my-command.md`:
 
 ```yaml
 ---
-description: What this persona does
+description: What this command does
 ---
 ```
 
-Add persona instructions below the frontmatter.
+Add command instructions below the frontmatter.
 
 See `.claude/templates/command.template.md` for the full format.
 
@@ -95,7 +95,7 @@ Edit `.claude/rules/tech-strategy.md` to match your actual technology choices:
 | Build | esbuild |       # your choice
 ```
 
-The framework enforces these across all personas. Claude will use the technologies you specify here, not generic defaults.
+The framework enforces these across all commands. Claude will use the technologies you specify here, not generic defaults.
 
 ---
 

@@ -46,7 +46,7 @@ async function main(): Promise<void> {
 
     const input: HookInput = JSON.parse(inputData);
 
-    // Skip suggestions when the user is already invoking a specific persona or skill
+    // Skip suggestions when the user is already invoking a specific command or skill
     if (input.prompt.trim().startsWith("/")) {
       process.exit(0);
     }

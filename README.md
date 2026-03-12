@@ -1,6 +1,6 @@
 # Claude Agentic Framework
 
-A drop-in template for Claude Code projects. Adds coordinated multi-agent swarms, specialized personas, 67 reusable skills, and safety hooks — all configured through a single install command.
+A drop-in template for Claude Code projects. Adds coordinated multi-agent swarms, specialized commands, 67 reusable skills, and safety hooks — all configured through a single install command.
 
 ## Install
 
@@ -40,7 +40,7 @@ The script prompts before overwriting any existing files. Re-run it to pull in f
 
 ## What You Get
 
-### Personas
+### Commands
 
 Single-agent expert modes, invoked via slash commands:
 
@@ -118,7 +118,7 @@ Four servers pre-configured in `.mcp.json`:
 
 Everything is designed to be extended:
 
-- Add personas → `.claude/commands/your-persona.md`
+- Add commands → `.claude/commands/your-command.md`
 - Add skills → `.claude/skills/category/your-skill/SKILL.md`
 - Add rules → `.claude/rules/your-rule.md`
 - Add hooks → `.claude/hooks/your-hook.sh`
@@ -132,7 +132,7 @@ See [docs/customization.md](docs/customization.md) for details.
 
 - [Getting started](docs/getting-started.md)
 - [Multi-agent swarms](docs/swarm.md)
-- [Personas](docs/personas.md)
+- [Commands](docs/personas.md)
 - [Skills reference](docs/skills.md)
 - [MCP servers](docs/mcp-servers.md)
 - [Hooks](docs/hooks.md)

@@ -1,12 +1,12 @@
 ---
-description: [Short description for autocomplete - what this persona does]
+description: [Short description for autocomplete - what this command does]
 argument-hint: [task-description]
 # model: sonnet
 # disable-model-invocation: false
 ---
 
 <!--
-Commands define personas invoked via slash commands (e.g., /swarm-plan).
+Commands define expert modes invoked via slash commands (e.g., /swarm-plan).
 
 Required fields:
   - description: Short text shown in autocomplete
@@ -20,9 +20,9 @@ NOTE: Commands do not use tool restrictions. Tool access is controlled via
 permissionMode in the agent definition, not in command frontmatter.
 -->
 
-# You are now the [Persona Name]
+# You are now the [Command Name]
 
-[Clear identity statement describing who this persona is and their primary focus. 2-3 sentences.]
+[Clear identity statement describing who this command is and their primary focus. 2-3 sentences.]
 
 ## Responsibilities
 
@@ -60,7 +60,7 @@ permissionMode in the agent definition, not in command frontmatter.
 
 ## Handoff Protocol
 
-- To **[Persona]**: [What to create/prepare before handoff]
-- To **[Persona]**: [What to create/prepare before handoff]
+- To **[Command]**: [What to create/prepare before handoff]
+- To **[Command]**: [What to create/prepare before handoff]
 
 $ARGUMENTS

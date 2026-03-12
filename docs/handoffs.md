@@ -1,8 +1,8 @@
 # Handoffs
 
-How work flows between personas and agents.
+How work flows between commands and agents.
 
-## Persona Handoff Chain
+## Command Handoff Chain
 
 ```
 /architect        →  artifacts/adr_*.md, system_design_*.md
@@ -12,7 +12,7 @@ How work flows between personas and agents.
 /swarm-review     →  Feedback → back to /builder if needed
 ```
 
-Each persona reads the previous artifacts and builds on them.
+Each command reads the previous artifacts and builds on them.
 
 ## Swarm Orchestration Handoffs
 

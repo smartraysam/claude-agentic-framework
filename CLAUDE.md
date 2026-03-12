@@ -1,6 +1,6 @@
 # Claude Agentic Framework
 
-Drop-in framework for optimized Claude Code workflows with specialized personas and reusable skills.
+Drop-in framework for optimized Claude Code workflows with specialized commands and reusable skills.
 
 ## Quick Reference
 
@@ -80,7 +80,7 @@ See `beads-workflow` skill for complete command reference.
 | `./artifacts/` | Durable documents (plans, ADRs, PRDs, design specs) | Committed to repo |
 | `./scratchpad/` | Ephemeral working notes, exploration output, draft content | Gitignored, disposable |
 
-## Personas
+## Commands
 
 | Command | Role | Use |
 |---------|------|-----|

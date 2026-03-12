@@ -1,6 +1,6 @@
-# Personas
+# Commands
 
-Personas are expert modes. Use a slash command to switch.
+Commands are expert modes invoked via slash commands (e.g., `/architect`).
 
 ## Quick Reference
 
@@ -37,11 +37,11 @@ Or chain them for a workflow:
 
 ## How Handoffs Work
 
-Each persona reads the previous artifacts and builds on them. See [handoffs.md](handoffs.md).
+Each command reads the previous artifacts and builds on them. See [handoffs.md](handoffs.md).
 
 ## Creating Your Own
 
-See [customization.md](customization.md#adding-a-persona).
+See [customization.md](customization.md#adding-a-command).
 
 ---
 
