@@ -45,6 +45,12 @@ async function main(): Promise<void> {
     }
 
     const input: HookInput = JSON.parse(inputData);
+
+    // Skip suggestions when the user is already invoking a specific persona or skill
+    if (input.prompt.trim().startsWith("/")) {
+      process.exit(0);
+    }
+
     const prompt = input.prompt.toLowerCase();
 
     // Load skill rules
@@ -83,7 +89,7 @@ async function main(): Promise<void> {
       }
 
       // Check intent pattern matches
-      for (const pattern of skill.triggers.intent_patterns) {
+      for (const pattern of skill.triggers.intent_patterns ?? []) {
         try {
           const regex = new RegExp(pattern, "i");
           if (regex.test(prompt)) {
@@ -107,6 +113,19 @@ async function main(): Promise<void> {
       process.exit(0);
     }
 
+    // Sort by priority (critical > high > medium > low) and cap at top 3
+    const priorityRank: Record<string, number> = {
+      critical: 0,
+      high: 1,
+      medium: 2,
+      low: 3,
+    };
+    matchedSkills.sort(
+      (a, b) =>
+        priorityRank[a.skill.priority] - priorityRank[b.skill.priority]
+    );
+    const topMatches = matchedSkills.slice(0, 3);
+
     // Group by priority
     const priorityOrder = ["critical", "high", "medium", "low"];
     const grouped = new Map<string, MatchedSkill[]>();
@@ -115,7 +134,7 @@ async function main(): Promise<void> {
       grouped.set(priority, []);
     }
 
-    for (const match of matchedSkills) {
+    for (const match of topMatches) {
       const priority = match.skill.priority;
       grouped.get(priority)?.push(match);
     }
