@@ -28,8 +28,21 @@ CONTEXT=""
 
 # Load Beads status if available
 if command -v bd &> /dev/null && [ -d "$PROJECT_DIR/.beads" ]; then
-    READY_COUNT=$(timeout 3 bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
-    OPEN_COUNT=$(timeout 3 bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    if command -v timeout >/dev/null 2>&1; then
+        TIMEOUT_CMD="timeout"
+    elif command -v gtimeout >/dev/null 2>&1; then
+        TIMEOUT_CMD="gtimeout"
+    else
+        TIMEOUT_CMD=""
+    fi
+
+    if [ -n "$TIMEOUT_CMD" ]; then
+        READY_COUNT=$($TIMEOUT_CMD 3 bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+        OPEN_COUNT=$($TIMEOUT_CMD 3 bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    else
+        READY_COUNT=$(bd ready --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+        OPEN_COUNT=$(bd list --status open --json 2>/dev/null | jq 'length' 2>/dev/null || echo "0")
+    fi
 
     if [ "$OPEN_COUNT" != "0" ] || [ "$READY_COUNT" != "0" ]; then
         CONTEXT="$CONTEXT

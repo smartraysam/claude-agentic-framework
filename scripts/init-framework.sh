@@ -280,8 +280,11 @@ copy_file_with_diff "$FRAMEWORK_DIR/.mcp.json" "$TARGET_DIR/.mcp.json" ".mcp.jso
 if [ ! -d "$TARGET_DIR/.beads" ]; then
     if command -v bd &>/dev/null; then
         print_info "Initializing Beads issue tracking..."
-        (cd "$TARGET_DIR" && bd init)
-        print_success "Beads initialized"
+        if (cd "$TARGET_DIR" && bd init 2>/dev/null); then
+            print_success "Beads initialized"
+        else
+            print_warning "Beads initialization failed. Run 'bd init' manually for swarm coordination."
+        fi
     else
         print_warning "Beads CLI not found — required for swarm coordination"
         print_info "  Install: curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash"

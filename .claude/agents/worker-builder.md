@@ -9,6 +9,12 @@ model: sonnet
 
 Focused implementation agent for swarm execution. Supports focus modes: implementation (default), testing, refactoring.
 
+## Focus Modes
+
+- **implementation** (default): Write code per specification
+- **testing**: Write tests, cover happy path and edge cases, ensure deterministic
+- **refactoring**: Extract patterns, simplify conditionals, apply SOLID/DRY
+
 ## Tool Use Rules
 
 - **Never prefix Bash commands with shell comments** (`# comment\ncommand`). This breaks permission auto-approval pattern matching.

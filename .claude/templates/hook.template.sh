@@ -3,7 +3,10 @@
 # Event: [PreToolUse|PostToolUse|UserPromptSubmit|Stop|SubagentStop|SessionStart|SessionEnd|Notification|PermissionRequest|PreCompact]
 # Purpose: [Brief description of what this hook does]
 
-set -e
+# NOTE: Do not use "set -e" or "set -eo pipefail" in hooks.
+# set -e causes silent failures — if any command exits non-zero the script
+# terminates immediately without useful output. Instead, handle errors
+# per-command using explicit checks (e.g., "command || { echo 'error'; exit 1; }").
 
 # Read JSON input from stdin
 INPUT=$(cat)

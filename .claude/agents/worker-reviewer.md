@@ -10,6 +10,12 @@ skills: application-security
 
 Focused review agent for swarm execution. Supports focus modes: quality (default), security, performance.
 
+## Focus Modes
+
+- **quality** (default): Code review — naming, style, tests, patterns
+- **security**: OWASP Top 10, hardcoded secrets, auth/authz, input validation (reference CWE IDs)
+- **performance**: N+1 queries, blocking I/O, allocations, pagination, caching
+
 ## Tool Use Rules
 
 - **Never prefix Bash commands with shell comments** (`# comment\ncommand`). This breaks permission auto-approval pattern matching.

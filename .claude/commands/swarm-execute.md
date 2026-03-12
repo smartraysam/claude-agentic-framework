@@ -170,7 +170,7 @@ If quality gates fail: stash changes, mark task as blocked, add comment with rea
 ## Handoff
 
 - To `/swarm-review`: After implementation complete, create PR
-- To `/swarm-review`: For acceptance testing
+- To `/qa-engineer`: For acceptance testing
 - To `/swarm-plan`: When scope changes discovered
 
 $ARGUMENTS
